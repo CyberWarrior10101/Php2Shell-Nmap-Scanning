@@ -5,8 +5,6 @@ This repository contains a script that uses Nmap to scan for the "Php2Shell" vul
 It sends an HTTP GET request to the target server and attempts to estimate the server's PHP version by checking the `X-Powered-By` header.
 
 # Evidence
-
-**Test Evidence**:
 ```
 PORT     STATE SERVICE
 8080/tcp open  http-proxy
