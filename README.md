@@ -31,7 +31,7 @@ PORT     STATE SERVICE
 |_      https://nvd.nist.gov/vuln/detail/CVE-2026-109619
 ```
 
-# How to İnstall
+# How to Install
 Below, it is shown how to install it for Termux and Kali Linux:
 
 **Termux**:
