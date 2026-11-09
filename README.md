@@ -8,15 +8,15 @@ It sends an HTTP GET request to the target server and attempts to estimate the s
 Below, it is shown how to install it for Termux and Kali Linux:
 
 **Termux**:
-’’’
+```
 git clone https://github.com/CyberWarrior10101/Php2Shell-Nmap-Scanning
 cd Php2Shell-Nmap-Scanning
 mv http-vuln-php2shell.nse /data/data/com.termux/files/usr/share/nmap/scripts
-’’’
+```
 
 **Kali linux**
-’’’
+```
 git clone https://github.com/CyberWarrior10101/Php2Shell-Nmap-Scanning
 cd Php2Shell-Nmap-Scanning
 mv http-vuln-php2shell.nse /usr/share/nmap/scripts
-’’’
+```
