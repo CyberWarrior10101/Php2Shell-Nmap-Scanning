@@ -34,14 +34,14 @@ Below, it is shown how to install it for Termux and Kali Linux:
 
 **Termux**:
 ```
-git clone https://github.com/CyberWarrior10101/php2shell-checker.git
-cd php2shell-checker
+git clone https://github.com/CyberWarrior10101/php2shell-checker-nmap.git
+cd php2shell-checker-nmap
 mv http-vuln-php2shell.nse /data/data/com.termux/files/usr/share/nmap/scripts
 ```
 
 **Kali linux**
 ```
-git clone https://github.com/CyberWarrior10101/php2shell-checker.git
-cd php2shell-checker
+git clone https://github.com/CyberWarrior10101/php2shell-checker-nmap.git
+cd php2shell-checker-nmap
 mv http-vuln-php2shell.nse /usr/share/nmap/scripts
 ```
