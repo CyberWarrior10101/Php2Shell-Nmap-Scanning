@@ -5,10 +5,22 @@ local table = require "table"
 local vulns = require "vulns"
 
 description = [[
-PHP has various global state that temporarily points into request memory. In some scenarios, global state may not be
-correctly reset, or may be repopulated after being reset. The global state may then refer to request memory even after
-it has been freed. Subsequent requests may read or branch on this stale state before it is fully initialized. Multiple
-strategies can trigger this condition and produce remote code execution (RCE).
+Php2Shell (CVE-2026-109619 and CVE-2026-109618) consists of two distinct vulnerabilities; however, they share common critical
+traits: both affect unpatched PHP runtimes across multiple release branches and allow for unauthenticated remote code execution (RCE).
+
+CVE-2026-109618:
+In the event of an out-of-memory (OOM) error, PHP utilizes the longjmp() function to exit the current execution context and halt request
+processing. Certain contexts fail to handle this abrupt exit correctly, leaving request memory in an uninitialized state before full allocation
+cleanup can occur. The subsequent request cleanup procedure then reads from this uninitialized memory area or performs conditional branching
+operations based on its residual contents. Attackers can leverage specific OOM-triggering strategies to consistently induce this condition,
+leading to reliable remote code execution (RCE).
+
+CVE-2026-109619:
+PHP maintains several global states that temporarily point to active request memory. Under specific conditions, these global states
+are either not reset properly or are incorrectly repopulated post-reset. Consequently, a global state continues to reference a memory
+block that has already been deallocated, resulting in a Use-After-Free (UAF) condition. Subsequent incoming requests read this "stale",
+uninitialized state or execute branching operations guided by it. Various manipulation strategies can reliably trigger this behavior,
+yielding remote code execution (RCE).
 
 References:
 *https://nvd.nist.gov/vuln/detail/cve-2026-109619
@@ -66,7 +78,7 @@ action = function(host, port)
         CVSSv4 = "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
       },
       description = [[
-A critical Use-After-Free vulnerability in the PHP engine allows for remote code execution.
+According to the scan results, there is a potential security vulnerability in this PHP version.
       ]],
       references = {
         "https://nvd.nist.gov/vuln/detail/CVE-2026-109619",
