@@ -35,7 +35,7 @@ References:
 --
 -- PORT     STATE SERVICE
 -- 8080/tcp open  http-proxy
--- | test: 
+-- | http-vuln-php2shell: 
 -- |   VULNERABLE:
 -- |   Php2Shell CVE 2026 109619/109618 - RCE
 -- |     State: LIKELY VULNERABLE
